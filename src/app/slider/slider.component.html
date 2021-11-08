@@ -1,0 +1,15 @@
+<p-carousel
+  [value]="products"
+  [numVisible]="1"
+  [numScroll]="1"
+  [autoplayInterval]="3000"
+  [circular]="true"
+>
+  <ng-template let-product pTemplate="item" let-i="index">
+    <div class="slider-container">
+      <h1>{{i}}</h1>
+      <h2>{{ product.name }}</h2>
+      <img src="assets/img/{{product.image}}" />
+    </div>
+  </ng-template>
+</p-carousel>

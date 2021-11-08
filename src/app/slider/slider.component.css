@@ -1,0 +1,13 @@
+.slider-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.slider-container h2 {
+    color: grey;
+    position: absolute;
+    margin: auto;
+    top: 156px;
+    right: 156px;
+  }
