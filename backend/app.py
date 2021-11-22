@@ -1,7 +1,7 @@
 from flask_cors import CORS, cross_origin
 from flask import Flask, jsonify, request
 from sql import create_connection
-from sql_initial_execution import execute_initial
+from sql_initial_execution import execute_initial, select_from_table, check_if_available
 
 app = Flask(__name__)
 cors = CORS(app)

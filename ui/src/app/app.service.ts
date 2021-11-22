@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from "rxjs";
 
-import { Product } from './product';
+import { Product } from './classes/product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
+  cartSubject = new Subject();
+
   productNames: string[] = [
     'Bamboo Watch',
     'Black Watch',
@@ -50,5 +53,28 @@ export class AppService {
       .then((data) => {
         return data;
       });
+  }
+
+  getProducts() {
+    return this.http
+      .get<any>('assets/products.json')
+      .toPromise()
+      .then((res) => <Product[]>res.data)
+      .then((data) => {
+        return data;
+      });
+  }
+
+  getMonthlyData() {
+    return this.http
+      .get<any>('assets/monthly_data.json')
+      .toPromise()
+      .then((data) => {
+        return data;
+      });
+  }
+
+  getCartDetails() {
+    this.cartSubject.next({total: 100, items: 3});
   }
 }

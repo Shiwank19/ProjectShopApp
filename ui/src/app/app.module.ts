@@ -2,16 +2,41 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { TabMenuModule } from 'primeng/tabmenu';
-
-import { CarouselModule } from 'primeng/carousel';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
+import { TabMenuModule } from 'primeng/tabmenu';
+import { TableModule } from 'primeng/table';
+import { DataViewModule } from 'primeng/dataview';
+import { DropdownModule } from 'primeng/dropdown';
+import {ChartModule} from 'primeng/chart';
+import { ButtonModule } from 'primeng/button';
+import { RatingModule } from 'primeng/rating';
+import { CarouselModule } from 'primeng/carousel';
+import { PanelModule } from 'primeng/panel';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { RippleModule } from 'primeng/ripple';
+import { ListboxModule } from 'primeng/listbox';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './nav-bar/nav-bar.component';
 import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { SearchComponent } from './search/search.component';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { ContactComponent } from './contact/contact.component';
+import { AppService } from './app.service';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,17 +45,38 @@ import { CartComponent } from './cart/cart.component';
     NavbarComponent,
     SliderComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    CatalogueComponent,
+    SearchComponent,
+    AnalysisComponent,
+    ContactComponent,
+    LoginComponent,
+    MainComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     CarouselModule,
     TabMenuModule,
+    DataViewModule,
+    ButtonModule,
+    RatingModule,
+    ChartModule,
+    ToastModule,
+    PanelModule,
+    TableModule,
+    DropdownModule,
+    DialogModule,
+    ListboxModule,
+    InputTextModule,
+    RippleModule,
+    ConfirmDialogModule,
   ],
-  providers: [],
+  providers: [AppService, MessageService, ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
