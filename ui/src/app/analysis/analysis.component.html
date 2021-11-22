@@ -131,7 +131,17 @@
         </div>
       </div></p-accordionTab
     >
-    <p-accordionTab header="Category Wise Sale"></p-accordionTab>
+    <p-accordionTab header="Category Wise Sale">
+      <p-chart
+        type="doughnut"
+        width="40vw"
+        height="80vh"
+        *ngIf="category_wise_item_count"
+        [data]="category_wise_item_count"
+        [options]="chartOptions"
+        [style]="{ width: '40%' }"
+      ></p-chart>
+    </p-accordionTab>
   </p-accordion>
 </div>
 

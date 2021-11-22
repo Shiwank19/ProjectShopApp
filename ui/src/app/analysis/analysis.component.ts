@@ -37,6 +37,9 @@ export class AnalysisComponent implements OnInit {
   product: Product;
   submitted: boolean;
 
+  category_wise_item_count: any;
+  chartOptions: any;
+
   constructor(
     private primengConfig: PrimeNGConfig,
     private appService: AppService,
@@ -95,6 +98,45 @@ export class AnalysisComponent implements OnInit {
     this.appService.getProducts().then((data) => (this.products = data));
 
     this.primengConfig.ripple = true;
+
+    this.appService.getCategoryWiseData().subscribe((jsonData) => {
+      this.category_wise_item_count = {};
+      this.category_wise_item_count.labels = Object.keys(jsonData);
+      this.category_wise_item_count.datasets = [];
+
+      let obj: any = {};
+      let colors = [];
+      let data = [];
+      for (let i = 0; i < this.category_wise_item_count.labels.length; i++) {
+        colors.push(this.gen_color());
+        data.push(jsonData[this.category_wise_item_count.labels[i]]);
+      }
+      obj['data'] = data;
+      obj['backgroundColor'] = colors;
+      obj['hoverBackgroundColor'] = colors;
+      this.category_wise_item_count.datasets.push(obj);
+    });
+    this.chartOptions = this.getLightTheme();
+  }
+
+  gen_color() {
+    let out_color = '#';
+    for (let i = 0; i < 6; i++) {
+      out_color += Math.floor(Math.random() * 16).toString(16);
+    }
+    return out_color;
+  }
+
+  getLightTheme() {
+    return {
+      plugins: {
+        legend: {
+          labels: {
+            color: '#495057',
+          },
+        },
+      },
+    };
   }
 
   openNew() {

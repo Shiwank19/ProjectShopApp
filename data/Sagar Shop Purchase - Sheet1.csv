@@ -1,0 +1,228 @@
+S No,Date,Item Name,category,sale price
+1,2020-08-15,lava a1200,mobile phone,1200
+2,2020-09-18,nokia 105,mobile phone,1150
+3,2020-09-18,micromax x756,mobile phone,1500
+4,2020-09-19,nokia 105,mobile phone,1200
+5,2020-09-20,voda recharge 500,recharge,500
+6,2020-09-30,micromax x412,mobile phone,850
+7,2020-10-03,micromax x741,mobile phone,1400
+8,2020-10-04,micromax x742,mobile phone,1250
+9,2020-10-05,karbonn k9,mobile phone,1370
+10,2020-10-05,lava a1200,mobile phone,1240
+11,2020-10-06,intex eco105,mobile phone,900
+12,2020-10-07,lava sparki8,mobile phone,1500
+13,2020-10-09,micromax x744,mobile phone,1200
+14,2020-10-09,micromax x744,mobile phone,1200
+15,2020-10-09,samsung gurufmplus,mobile phone,1575
+16,2020-10-10,mpower charger,charger,250
+17,2020-10-13,micromax 746,mobile phone,1380
+18,2020-10-16,itel power400,mobile phone,1275
+19,2020-10-17,cellcor c9,mobile phone,800
+20,2020-10-20,samsung gurumusic2,mobile phone,1800
+21,2020-10-21,intex 108+,mobile phone,1200
+22,2020-10-23,intex turboslim,mobile phone,1000
+23,2020-10-26,lava hero,mobile phone,800
+24,2020-10-28,itel magic1,mobile phone,1550
+25,2020-10-30,intex g3+,mobile phone,1500
+26,2020-10-30,voda recharge 500,mobile phone,500
+27,2020-11-01,lava hero,mobile phone,800
+28,2020-11-02,intex eco105,mobile phone,850
+29,2020-11-08,lava a1,mobile phone,1000
+30,2020-11-09,nokia 105,mobile phone,1200
+31,2020-11-09,samsung gurufm,mobile phone,1500
+32,2020-11-09,samsung gurumusic2,mobile phone,1800
+33,2020-11-10,nokia 105,mobile phone,1200
+34,2020-11-13,micromax x750,mobile phone,1500
+35,2020-11-14,samsung guru1200,mobile phone,1300
+36,2020-11-14,itel magic1,mobile phone,1400
+37,2020-11-16,karbonn k9,mobile phone,1350
+38,2020-11-20,samsung gurufm,mobile phone,1630
+39,2020-11-27,cellcor c4,mobile phone,900
+40,2020-12-02,samsung gurumusic2,mobile phone,1800
+41,2020-12-02,samsung gurumusic2,mobile phone,1750
+42,2020-12-04,karbonn k310,mobile phone,900
+43,2020-12-05,nokia 105,mobile phone,1200
+44,2020-12-06,nokia 105,mobile phone,1190
+45,2020-12-16,samsung guru1200,mobile phone,1290
+46,2020-12-18,samsung guru1200,mobile phone,1300
+47,2020-12-16,opal f1,mobile phone,700
+48,2020-12-20,intex ultrag3+,mobile phone,1300
+49,2020-12-26,karbonn k9,mobile phone,1300
+50,2020-12-27,lava a1,mobile phone,1000
+51,2020-12-27,samsung guru1200,mobile phone,1250
+52,2020-12-29,samsung guru1200,mobile phone,1250
+53,2020-12-30,samsung gurufmpplus,mobile phone,1500
+54,2021-01-02,nokia 105,mobile phone,1200
+55,2021-01-06,voda recharge 500,recharge,500
+56,2021-01-08,samsung guru1200,mobile phone,1250
+57,2021-01-02,sandisk 32gb_memory,memory card,375
+58,2021-01-10,karbonn k9,mobile phone,1325
+59,2021-01-10,samsung gurufmplus,mobile phone,1600
+60,2021-01-10,karbonn k106s,mobile phone,800
+61,2021-01-10,nokia 105,mobile phone,1200
+62,2021-01-11,lava a1_colors,mobile phone,900
+63,2021-01-10,samsung gurumusic2,mobile phone,1800
+64,2021-01-12,samsung guru1200,mobile phone,1300
+65,2021-01-16,intex eco_selfie_2,mobile phone,950
+66,2021-01-17,tatasky recharge,recharge,4440
+67,2021-01-19,intex power_bank,power bank,1000
+68,2021-01-19,tatasky recharge,recharge,6208
+69,2021-01-20,samsung guru1200,mobile phone,1250
+70,2021-01-22,lava a3,mobile phone,1200
+71,2021-01-23,lava a1200,mobile phone,1200
+72,2021-01-23,samsung gurumusic2,mobile phone,1700
+73,2021-01-25,sandisk 32gb_pendrive,pen drive,380
+74,2021-01-31,lava a1_josh,mobile phone,1000
+75,2021-02-03,itel it5617,mobile phone,1250
+76,2021-02-03,itel u10,mobile phone,950
+77,2021-02-05,nokia 105,mobile phone,1150
+78,2021-02-06,nokia 105,mobile phone,1200
+79,2021-02-08,samsung guru1200,mobile phone,1200
+80,2021-02-08,samsung guru1200,mobile phone,1200
+81,2021-02-09,samsung j2_core,mobile phone,6400
+82,2021-02-09,lava a1,mobile phone,1070
+83,2021-02-10,jio battery,battery,270
+84,2021-02-13,micromax x809,mobile phone,1250
+85,2021-02-17,lava a1,mobile phone,1160
+86,2021-02-19,lava a1_josh,mobile phone,1000
+87,2021-02-20,samsung gurufm,mobile phone,1500
+88,2021-02-20,micromax x419,mobile phone,1000
+89,2021-02-20,micromax x388,mobile phone,1200
+90,2021-02-22,samsung gurumusic2,mobile phone,1700
+91,2021-02-22,nokia 105,mobile phone,1200
+92,2021-02-22,samsung gurumusic2,mobile phone,1750
+93,2021-03-02,samsung gurufm,mobile phone,1500
+94,2021-03-03,lava a1_josh,mobile phone,1000
+95,2021-03-10,itel it5608,mobile phone,1100
+96,2021-03-10,samsung guru1200,mobile phone,1200
+97,2021-03-10,karbonn kphone_x,mobile phone,1400
+98,2021-03-10,micromax x749,mobile phone,1500
+99,2021-03-10,samsung gurumusic2,mobile phone,1700
+100,2021-03-14,lava a5,mobile phone,1050
+101,2021-03-16,samsung guru1200,mobile phone,1200
+102,2021-03-19,itel it2161_ace,mobile phone,800
+103,2021-03-19,lava flip,mobile phone,1700
+104,2021-03-25,samsung gurumusic2,mobile phone,1750
+105,2021-03-26,jivi n3,mobile phone,950
+106,2021-03-26,cellcor a4,mobile phone,800
+107,2021-04-05,nokia 110,mobile phone,1900
+108,2021-04-09,opal b6,mobile phone,700
+109,2021-04-10,lava hero,mobile phone,700
+110,2021-04-12,karbonn k9,mobile phone,1300
+111,2021-04-14,cellcor c9,mobile phone,850
+112,2021-04-21,samsung gurumusic2,mobile phone,1800
+113,2021-04-21,samsung guru1200,mobile phone,1200
+114,2021-04-23,lava a1200,mobile phone,1200
+115,2021-04-26,samsung guru1200,mobile phone,1200
+116,2021-05-21,color prinout,printout service,250
+117,2021-04-23,itel ace,mobile phone,780
+118,2021-06-04,intex eco105vx,mobile phone,850
+119,2021-06-07,nokia 105,mobile phone,1200
+120,2021-06-07,lava a1,mobile phone,1000
+121,2021-06-09,intex eco107,mobile phone,800
+122,2021-06-10,lava a5,mobile phone,1150
+123,2021-06-10,lava a1,mobile phone,1000
+124,2021-06-13,intex eco105vx,mobile phone,900
+125,2021-06-15,lava kkt40_power,mobile phone,1500
+126,2021-06-15,cellcor a20,mobile phone,1450
+127,2021-06-21,karbonn k9 ,mobile phone,1250
+128,2021-06-21,robotek j2_battery,battery,400
+129,2021-06-24,nokia 105_dual_sim,mobile phone,1450
+130,2021-06-25,lava gem,mobile phone,1750
+131,2021-06-30,lava a1_2021,mobile phone,1000
+132,2021-06-30,micromax x807,mobile phone,1475
+133,2021-07-01,lava battery,battery,340
+134,2021-07-02,samsung guru1200,mobile phone,1200
+135,2021-07-02,samsung guru1200,mobile phone,1200
+136,2021-07-02,intex e_turbo108,mobile phone,1200
+137,2021-07-02,lava battery,battery,250
+138,2021-07-02,samsung gurumusic2,mobile phone,1800
+139,2021-07-05,itel power100,mobile phone,1200
+140,2021-07-05,itel it2163,mobile phone,999
+141,2021-07-06,cellcor r2,mobile phone,900
+142,2021-07-07,itel ace,mobile phone,800
+143,2021-07-08,samsung gurufmplus,mobile phone,1500
+144,2021-07-08,itel it2173,mobile phone,1000
+145,2021-07-09,opal v300,mobile phone,700
+146,2021-07-16,samsung gurumusic2,mobile phone,1800
+147,2021-07-16,samsung guru1200,mobile phone,1200
+148,2021-07-21,mpower headphone,headphone,950
+149,2021-07-22,cellcor r3,mobile phone,900
+150,2021-07-22,lava a1_josh,mobile phone,1000
+151,2021-07-27,intex turbo108+,mobile phone,1175
+152,2021-07-28,cellcor r2,mobile phone,800
+153,2021-07-30,itel 2190,mobile phone,1000
+154,2021-07-30,intex power_bank,power bank,800
+155,2021-08-02,karbonn k9,mobile phone,1300
+156,2021-08-03,nokia 105_dual_sim,mobile phone,1500
+157,2021-08-03,samsung guru1200,mobile phone,1250
+158,2021-08-04,itel it_5606,mobile phone,1100
+159,2021-08-05,lava pulse1,mobile phone,1450
+160,2021-08-06,samsung gurufmplus,mobile phone,1500
+161,2021-08-10,itel it2163,mobile phone,900
+162,2021-08-10,cellcor c4,mobile phone,900
+163,2021-08-11,nokia 105,mobile phone,1150
+164,2021-08-13,lava a7bt,mobile phone,1500
+165,2021-08-17,nokia 105,mobile phone,1200
+166,2021-08-18,samsung gurufmplus,mobile phone,1550
+167,2021-08-21,itel ace young,mobile phone,850
+168,2021-08-21,cellcor r5,mobile phone,900
+169,2021-08-23,tmb t3,mobile phone,1000
+170,2021-08-24,samsung gurufmplus,mobile phone,1600
+171,2021-08-25,cellcor x50,mobile phone,1300
+172,2021-08-25,nokia 105,mobile phone,1200
+173,2021-08-25,nokia 105_dual_sim,mobile phone,1400
+174,2021-08-27,cellcor r1,mobile phone,850
+175,2021-08-27,nokia 105_dual_sim,mobile phone,1350
+176,2021-09-01,lava flip,mobile phone,1900
+177,2021-09-02,lava a3,mobile phone,1200
+178,2021-09-03,nokia 105_dual_sim,mobile phone,1350
+179,2021-09-03,tmb a2,mobile phone,1200
+180,2021-09-06,karbonn k9,mobile phone,1300
+181,2021-09-06,mpower charger_2.5a,charger,120
+182,2021-09-06,samsung gurufmplus,mobile phone,1600
+183,2021-09-08,tmb a2,mobile phone,1150
+184,2021-09-08,tmb a2,mobile phone,1150
+185,2021-09-08,nokia 225_4g,mobile phone,3500
+186,2021-09-09,sandisk 64gb_pen_drive,pen drive,650
+187,2021-09-09,itel it5617,mobile phone,1350
+188,2021-09-11,tmb a2,mobile phone,1200
+189,2021-09-13,v8 neckband,neckband,550
+190,,,,
+191,,,,
+192,,,,
+193,,,,
+194,,,,
+195,,,,
+196,,,,
+197,,,,
+198,,,,
+199,,,,
+200,,,,
+201,,,,
+202,,,,
+203,,,,
+204,,,,
+205,,,,
+206,,,,
+207,,,,
+208,,,,
+209,,,,
+210,,,,
+211,,,,
+212,,,,
+213,,,,
+214,,,,
+215,,,,
+216,,,,
+217,,,,
+218,,,,
+219,,,,
+220,,,,
+221,,,,
+222,,,,
+223,,,,
+224,,,,
+225,,,,
+226,,,,
+227,,,,

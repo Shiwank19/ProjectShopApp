@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Product } from './classes/product';
 
@@ -9,6 +11,8 @@ import { Product } from './classes/product';
 })
 export class AppService {
   cartSubject = new Subject();
+  private baseUrl = 'http://localhost:5000';
+  private categoryUrl = `${this.baseUrl}/category-wise-item-count`;
 
   productNames: string[] = [
     'Bamboo Watch',
@@ -75,6 +79,26 @@ export class AppService {
   }
 
   getCartDetails() {
-    this.cartSubject.next({total: 100, items: 3});
+    this.cartSubject.next({ total: 100, items: 3 });
+  }
+
+  getCategoryWiseData() {
+    return this.http.get<any>(this.categoryUrl).pipe(
+      tap((_) => console.log('fetched data')),
+      catchError(this.handleError<any[]>('getCategoryWiseData', []))
+    );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      console.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 }
