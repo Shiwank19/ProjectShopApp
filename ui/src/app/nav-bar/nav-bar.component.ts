@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
       { label: 'Contact', icon: 'pi pi-fw pi-cog' },
     ];
     if (!this.isAdminConsole) {
-      this.items = this.items.filter(data => data.label != 'admin-console');
+      this.items = this.items.filter(data => data.label != 'Admin-Console');
     }
   }
 }

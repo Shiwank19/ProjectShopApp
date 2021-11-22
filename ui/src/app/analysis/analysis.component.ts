@@ -32,14 +32,17 @@ export class AnalysisComponent implements OnInit {
 
   selectedProduct: string;
 
-
   category_wise_item_count: any;
   item_wise_item_count: any;
   chartOptions: any;
 
+  multiAxisData: any;
+  multiAxisOptions: any;
+
   constructor(
     private primengConfig: PrimeNGConfig,
-    private appService: AppService) {}
+    private appService: AppService
+  ) {}
 
   ngOnInit(): void {
     this.basicData = {
@@ -88,12 +91,21 @@ export class AnalysisComponent implements OnInit {
 
     this.appService.getCategoryWiseCountData().subscribe((jsonData) => {
       this.category_wise_item_count = {};
-      this.populateChart(jsonData, this.category_wise_item_count);
+      this.populatePieChart(jsonData, this.category_wise_item_count);
     });
     this.appService.getItemWiseCountData().subscribe((jsonData) => {
       this.item_wise_item_count = {};
-      this.populateChart(jsonData, this.item_wise_item_count);
+      this.populatePieChart(jsonData, this.item_wise_item_count);
     });
+    this.appService.getCategoryWisePurchaseData().subscribe((jsonData) => {
+      let sales = jsonData['sale price'];
+      this.multiAxisData = {};
+      this.populateBarChart(sales, this.multiAxisData);
+      console.log(sales);
+      //      this.item_wise_item_count = {};
+      //      this.populateChart(jsonData, this.item_wise_item_count);
+    });
+
     this.chartOptions = this.getLightTheme();
   }
 
@@ -117,7 +129,77 @@ export class AnalysisComponent implements OnInit {
     };
   }
 
-  populateChart(jsonData: any, dataObj: any) {
+  populateBarChart(jsonData: any, dataObj: any) {
+    console.log(dataObj);
+    dataObj.labels = Object.keys(jsonData);
+    dataObj.datasets = [];
+
+    let obj: any = {};
+    let colors = [];
+    let data = [];
+    for (let i = 0; i < dataObj.labels.length; i++) {
+      colors.push(this.gen_color());
+      data.push(jsonData[dataObj.labels[i]]);
+    }
+    obj['data'] = data;
+    obj['label'] = 'Total Sale';
+    obj['backgroundColor'] = colors;
+    obj['yAxisID'] = 'y';
+    dataObj.datasets.push(obj);
+    console.log(dataObj);
+    this.multiAxisOptions = {
+      plugins: {
+        legend: {
+          labels: {
+            color: '#495057',
+          },
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: true,
+        },
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: '#495057',
+          },
+          grid: {
+            color: '#ebedef',
+          },
+        },
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          ticks: {
+            min: 0,
+            max: 100,
+            color: '#495057',
+          },
+          grid: {
+            color: '#ebedef',
+          },
+        },
+        y1: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+          grid: {
+            drawOnChartArea: false,
+            color: '#ebedef',
+          },
+          ticks: {
+            min: 0,
+            max: 100,
+            color: '#495057',
+          },
+        },
+      },
+    };
+  }
+
+  populatePieChart(jsonData: any, dataObj: any) {
     dataObj.labels = Object.keys(jsonData);
     dataObj.datasets = [];
 
@@ -133,5 +215,4 @@ export class AnalysisComponent implements OnInit {
     obj['hoverBackgroundColor'] = colors;
     dataObj.datasets.push(obj);
   }
-
 }

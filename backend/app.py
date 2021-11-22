@@ -18,7 +18,6 @@ def get_category_wise_items_sold_count():
     Total_classes_category = pd.value_counts(dataset['category'], sort = True)
     
     return Total_classes_category.to_json()
-    #jsonify([:5])
 
 @app.route("/item-wise-item-count")
 @cross_origin()
@@ -27,7 +26,25 @@ def get_item_wise_items_sold_count():
     Total_classes_category = pd.value_counts(dataset['Item Name'], sort = True)
     
     return Total_classes_category.to_json()
-    #jsonify([:5])
+
+@app.route("/category-wise-purchase")
+@cross_origin()
+def get_category_wise_purchase():
+    dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
+    df_cat = dataset.dropna()
+    return df_cat.groupby('category').sum().to_json()
+
+
+# temp_dict_category_sale = {}
+# for cat in cat_set:
+#   temp_dict_category_sale[cat] = dataset[dataset['category'] == cat]['sale price'].tolist()
+
+
+# dict_category_sale = {}
+# for key in temp_dict_category_sale:
+#   dict_category_sale[key] = sum(temp_dict_category_sale[key])
+
+# dict_category_sale
 
 
 @app.route("/stock_company", methods=['POST'])
