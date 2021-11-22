@@ -36,7 +36,8 @@ export class AnalysisComponent implements OnInit {
   item_wise_item_count: any;
   chartOptions: any;
 
-  multiAxisData: any;
+  multiAxisCategoryData: any;
+  multiAxisItemData: any;
   multiAxisOptions: any;
 
   constructor(
@@ -99,54 +100,21 @@ export class AnalysisComponent implements OnInit {
     });
     this.appService.getCategoryWisePurchaseData().subscribe((jsonData) => {
       let sales = jsonData['sale price'];
-      this.multiAxisData = {};
-      this.populateBarChart(sales, this.multiAxisData);
-      console.log(sales);
-      //      this.item_wise_item_count = {};
-      //      this.populateChart(jsonData, this.item_wise_item_count);
+      this.multiAxisCategoryData = {};
+      this.populateBarChart(sales, this.multiAxisCategoryData);
+    });
+    this.appService.getCategoryWisePurchaseData().subscribe((jsonData) => {
+      let sales = jsonData['sale price'];
+      this.multiAxisCategoryData = {};
+      this.populateBarChart(sales, this.multiAxisCategoryData);
+    });
+    this.appService.getItemWisePurchaseData().subscribe((jsonData) => {
+      let sales = jsonData['sale price'];
+      this.multiAxisItemData = {};
+      this.populateBarChart(sales, this.multiAxisItemData);
     });
 
     this.chartOptions = this.getLightTheme();
-  }
-
-  gen_color() {
-    let out_color = '#';
-    for (let i = 0; i < 6; i++) {
-      out_color += Math.floor(Math.random() * 16).toString(16);
-    }
-    return out_color;
-  }
-
-  getLightTheme() {
-    return {
-      plugins: {
-        legend: {
-          labels: {
-            color: '#495057',
-          },
-        },
-      },
-    };
-  }
-
-  populateBarChart(jsonData: any, dataObj: any) {
-    console.log(dataObj);
-    dataObj.labels = Object.keys(jsonData);
-    dataObj.datasets = [];
-
-    let obj: any = {};
-    let colors = [];
-    let data = [];
-    for (let i = 0; i < dataObj.labels.length; i++) {
-      colors.push(this.gen_color());
-      data.push(jsonData[dataObj.labels[i]]);
-    }
-    obj['data'] = data;
-    obj['label'] = 'Total Sale';
-    obj['backgroundColor'] = colors;
-    obj['yAxisID'] = 'y';
-    dataObj.datasets.push(obj);
-    console.log(dataObj);
     this.multiAxisOptions = {
       plugins: {
         legend: {
@@ -197,6 +165,44 @@ export class AnalysisComponent implements OnInit {
         },
       },
     };
+  }
+
+  gen_color() {
+    let out_color = '#';
+    for (let i = 0; i < 6; i++) {
+      out_color += Math.floor(Math.random() * 16).toString(16);
+    }
+    return out_color;
+  }
+
+  getLightTheme() {
+    return {
+      plugins: {
+        legend: {
+          labels: {
+            color: '#495057',
+          },
+        },
+      },
+    };
+  }
+
+  populateBarChart(jsonData: any, dataObj: any) {
+    dataObj.labels = Object.keys(jsonData);
+    dataObj.datasets = [];
+
+    let obj: any = {};
+    let colors = [];
+    let data = [];
+    for (let i = 0; i < dataObj.labels.length; i++) {
+      colors.push(this.gen_color());
+      data.push(jsonData[dataObj.labels[i]]);
+    }
+    obj['data'] = data;
+    obj['label'] = 'Total Sale';
+    obj['backgroundColor'] = colors;
+    obj['yAxisID'] = 'y';
+    dataObj.datasets.push(obj);
   }
 
   populatePieChart(jsonData: any, dataObj: any) {

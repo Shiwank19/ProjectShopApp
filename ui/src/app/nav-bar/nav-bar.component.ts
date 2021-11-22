@@ -12,7 +12,6 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.isAdminConsole);
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/main/home'] },
       { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },

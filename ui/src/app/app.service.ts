@@ -15,6 +15,7 @@ export class AppService {
   private categoryCountUrl = `${this.baseUrl}/category-wise-item-count`;
   private categoryPurchaseUrl = `${this.baseUrl}/category-wise-purchase`;
   private itemCountUrl = `${this.baseUrl}/item-wise-item-count`;
+  private itemPurchaseUrl = `${this.baseUrl}/item-wise-purchase`;
   
   productNames: string[] = [
     'Bamboo Watch',
@@ -102,6 +103,12 @@ export class AppService {
     return this.http.get<any>(this.itemCountUrl).pipe(
       tap((_) => console.log('fetched data')),
       catchError(this.handleError<any[]>('getItemWiseCountData', []))
+    );
+  }
+  getItemWisePurchaseData() {
+    return this.http.get<any>(this.itemPurchaseUrl).pipe(
+      tap((_) => console.log('fetched data')),
+      catchError(this.handleError<any[]>('getItemWisePurchaseData', []))
     );
   }
 

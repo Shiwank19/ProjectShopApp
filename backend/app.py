@@ -35,24 +35,20 @@ def get_category_wise_purchase():
     return df_cat.groupby('category').sum().to_json()
 
 
-# temp_dict_category_sale = {}
-# for cat in cat_set:
-#   temp_dict_category_sale[cat] = dataset[dataset['category'] == cat]['sale price'].tolist()
-
-
-# dict_category_sale = {}
-# for key in temp_dict_category_sale:
-#   dict_category_sale[key] = sum(temp_dict_category_sale[key])
-
-# dict_category_sale
-
-
-@app.route("/stock_company", methods=['POST'])
+@app.route("/item-wise-purchase")
 @cross_origin()
-def get_stock_company_info():
-    data = request.json
-    idx, amount, period, startDate, endDate, roa = data['ids'], data[
-        'amount'], data['period'], data['startDate'], data['endDate'], data['roa']
+def get_item_wise_purchase():
+    dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
+    df_cat = dataset.dropna()
+    return df_cat.groupby('Item Name').sum().to_json()
+
+
+# @app.route("/stock_company", methods=['POST'])
+# @cross_origin()
+# def get_stock_company_info():
+#     data = request.json
+#     idx, amount, period, startDate, endDate, roa = data['ids'], data[
+#         'amount'], data['period'], data['startDate'], data['endDate'], data['roa']
 
 
 print('starting...')

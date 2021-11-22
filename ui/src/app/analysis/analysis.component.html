@@ -47,7 +47,7 @@
     <p-accordionTab header="Category Wise Sales">
       <p-chart
         type="bar"
-        [data]="multiAxisData"
+        [data]="multiAxisCategoryData"
         [options]="multiAxisOptions"
       ></p-chart>
     </p-accordionTab>
@@ -60,6 +60,13 @@
         [data]="item_wise_item_count"
         [options]="chartOptions"
         [style]="{ width: '40%' }"
+      ></p-chart>
+    </p-accordionTab>
+    <p-accordionTab header="Item Wise Sales">
+      <p-chart
+        type="bar"
+        [data]="multiAxisItemData"
+        [options]="multiAxisOptions"
       ></p-chart>
     </p-accordionTab>
   </p-accordion>
