@@ -12,7 +12,8 @@ import { Product } from './classes/product';
 export class AppService {
   cartSubject = new Subject();
   private baseUrl = 'http://localhost:5000';
-  private categoryUrl = `${this.baseUrl}/category-wise-item-count`;
+  private categoryCountUrl = `${this.baseUrl}/category-wise-item-count`;
+  private itemCountUrl = `${this.baseUrl}/item-wise-item-count`;
 
   productNames: string[] = [
     'Bamboo Watch',
@@ -82,10 +83,17 @@ export class AppService {
     this.cartSubject.next({ total: 100, items: 3 });
   }
 
-  getCategoryWiseData() {
-    return this.http.get<any>(this.categoryUrl).pipe(
+  getCategoryWiseCountData() {
+    return this.http.get<any>(this.categoryCountUrl).pipe(
       tap((_) => console.log('fetched data')),
-      catchError(this.handleError<any[]>('getCategoryWiseData', []))
+      catchError(this.handleError<any[]>('getCategoryWiseCountData', []))
+    );
+  }
+
+  getItemWiseCountData() {
+    return this.http.get<any>(this.itemCountUrl).pipe(
+      tap((_) => console.log('fetched data')),
+      catchError(this.handleError<any[]>('getItemWiseCountData', []))
     );
   }
 

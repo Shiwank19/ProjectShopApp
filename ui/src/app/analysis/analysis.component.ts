@@ -32,24 +32,14 @@ export class AnalysisComponent implements OnInit {
 
   selectedProduct: string;
 
-  productDialog: boolean;
-  products: Product[];
-  product: Product;
-  submitted: boolean;
 
   category_wise_item_count: any;
+  item_wise_item_count: any;
   chartOptions: any;
 
   constructor(
     private primengConfig: PrimeNGConfig,
-    private appService: AppService,
-    private messageService: MessageService,
-    private confirmationService: ConfirmationService
-  ) {}
-
-  loop(d: any) {
-    console.log(d);
-  }
+    private appService: AppService) {}
 
   ngOnInit(): void {
     this.basicData = {
@@ -91,30 +81,18 @@ export class AnalysisComponent implements OnInit {
       console.log(monthly_data);
       for (let key in monthly_data) {
         let obj = { label: key, value: key, items: [] };
-        //this.groupedCities.push(obj);
-        this.loop(monthly_data[key]);
       }
     });
-    this.appService.getProducts().then((data) => (this.products = data));
 
     this.primengConfig.ripple = true;
 
-    this.appService.getCategoryWiseData().subscribe((jsonData) => {
+    this.appService.getCategoryWiseCountData().subscribe((jsonData) => {
       this.category_wise_item_count = {};
-      this.category_wise_item_count.labels = Object.keys(jsonData);
-      this.category_wise_item_count.datasets = [];
-
-      let obj: any = {};
-      let colors = [];
-      let data = [];
-      for (let i = 0; i < this.category_wise_item_count.labels.length; i++) {
-        colors.push(this.gen_color());
-        data.push(jsonData[this.category_wise_item_count.labels[i]]);
-      }
-      obj['data'] = data;
-      obj['backgroundColor'] = colors;
-      obj['hoverBackgroundColor'] = colors;
-      this.category_wise_item_count.datasets.push(obj);
+      this.populateChart(jsonData, this.category_wise_item_count);
+    });
+    this.appService.getItemWiseCountData().subscribe((jsonData) => {
+      this.item_wise_item_count = {};
+      this.populateChart(jsonData, this.item_wise_item_count);
     });
     this.chartOptions = this.getLightTheme();
   }
@@ -139,71 +117,21 @@ export class AnalysisComponent implements OnInit {
     };
   }
 
-  openNew() {
-    this.product = {};
-    this.submitted = false;
-    this.productDialog = true;
-  }
+  populateChart(jsonData: any, dataObj: any) {
+    dataObj.labels = Object.keys(jsonData);
+    dataObj.datasets = [];
 
-  editProduct(product: Product) {
-    this.product = { ...product };
-    this.productDialog = true;
-  }
-
-  hideDialog() {
-    this.productDialog = false;
-    this.submitted = false;
-  }
-
-  saveProduct() {
-    this.submitted = true;
-    let name = this.product.name?.trim() || '';
-    if (name) {
-      if (this.product.id) {
-        this.products[this.findIndexById(this.product.id)] = this.product;
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Successful',
-          detail: 'Product Updated',
-          life: 3000,
-        });
-      } else {
-        this.product.id = this.createId();
-        this.product.image = 'product-placeholder.svg';
-        this.products.push(this.product);
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Successful',
-          detail: 'Product Created',
-          life: 3000,
-        });
-      }
-
-      this.products = [...this.products];
-      this.productDialog = false;
-      this.product = {};
+    let obj: any = {};
+    let colors = [];
+    let data = [];
+    for (let i = 0; i < dataObj.labels.length; i++) {
+      colors.push(this.gen_color());
+      data.push(jsonData[dataObj.labels[i]]);
     }
+    obj['data'] = data;
+    obj['backgroundColor'] = colors;
+    obj['hoverBackgroundColor'] = colors;
+    dataObj.datasets.push(obj);
   }
 
-  findIndexById(id: string): number {
-    let index = -1;
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id === id) {
-        index = i;
-        break;
-      }
-    }
-
-    return index;
-  }
-
-  createId(): string {
-    let id = '';
-    var chars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < 5; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
-  }
 }

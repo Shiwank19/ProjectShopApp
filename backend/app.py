@@ -20,6 +20,15 @@ def get_category_wise_items_sold_count():
     return Total_classes_category.to_json()
     #jsonify([:5])
 
+@app.route("/item-wise-item-count")
+@cross_origin()
+def get_item_wise_items_sold_count():
+    dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv")
+    Total_classes_category = pd.value_counts(dataset['Item Name'], sort = True)
+    
+    return Total_classes_category.to_json()
+    #jsonify([:5])
+
 
 @app.route("/stock_company", methods=['POST'])
 @cross_origin()

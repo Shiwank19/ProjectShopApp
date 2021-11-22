@@ -41,6 +41,7 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { AdminConsoleComponent } from './admin-console/admin-console.component';
     MainComponent,
     HeaderComponent,
     AdminConsoleComponent,
+    InventoryComponent,
   ],
   imports: [
     BrowserModule,
