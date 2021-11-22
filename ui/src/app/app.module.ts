@@ -37,6 +37,7 @@ import { AppService } from './app.service';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
+import { AdminConsoleComponent } from './admin-console/admin-console.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     MainComponent,
     HeaderComponent,
+    AdminConsoleComponent,
   ],
   imports: [
     BrowserModule,

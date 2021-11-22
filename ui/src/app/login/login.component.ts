@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private r: Router) {}
 
   ngOnInit(): void {
-    this.name = 'user';
+    this.name = 'admin';
   }
 
   submit() {

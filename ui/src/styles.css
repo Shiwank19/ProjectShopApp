@@ -4,6 +4,9 @@ body {
   padding: 2em;
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica,
     Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(90deg, #c7c5f4, #776bcc) !important;
+  padding: 0px;
 }
 .fa {
   display: inline-block;
@@ -49,9 +52,6 @@ h4,
 h5,
 h6 {
   margin: 0 0 15px;
-}
-body {
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header-area {
@@ -547,12 +547,15 @@ body {
 .footer-top-area {
   background: none repeat scroll 0 0 #333;
   color: #999;
-  padding: 35px 0 90px;
+  padding: 15px 0px 40px 0px;
 }
 
 .footer-bottom-area {
   background: #000;
   color: #fff;
+}
+.footer-about-us {
+  padding: 10px;
 }
 .footer-about-us span {
   color: #5a88ca;
@@ -601,7 +604,7 @@ body {
 }
 
 .footer-social {
-  margin-top: 20px;
+  margin: 20px 0px 0px 20px;
 }
 
 .newsletter-form input[type="email"] {
@@ -925,10 +928,12 @@ form.cart {
 }
 
 table.shop_table {
+  margin-top: 15px;
   border-bottom: 1px solid #ddd;
   border-right: 1px solid #ddd;
   margin-bottom: 50px;
   width: 100%;
+  background: white;
 }
 table.shop_table th,
 table.shop_table td {
@@ -967,6 +972,9 @@ td.actions div.coupon {
 }
 .cart-collaterals {
   overflow: hidden;
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
 }
 .cross-sells {
   float: left;
@@ -1159,8 +1167,4 @@ p-chart div {
   margin: 0;
   padding: 0;
   font-family: Raleway, sans-serif;
-}
-
-body {
-  background: linear-gradient(90deg, #c7c5f4, #776bcc) !important;
 }

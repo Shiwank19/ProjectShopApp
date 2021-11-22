@@ -9,7 +9,7 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class MainComponent implements OnInit {
   title = 'dpm-project';
-  isAnalysis: boolean;
+  isAdminConsole: boolean;
   constructor(
     private primengConfig: PrimeNGConfig,
     private activateRoute: ActivatedRoute,
@@ -21,9 +21,9 @@ export class MainComponent implements OnInit {
     if (id != 'user' && id != 'admin') {
       this.router.navigate(['/login']);
     } else if (id == 'user') {
-      this.isAnalysis = false;
+      this.isAdminConsole = false;
     } else {
-      this.isAnalysis = true;
+      this.isAdminConsole = true;
     }
   }
 }
