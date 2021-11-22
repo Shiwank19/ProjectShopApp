@@ -1,127 +1,138 @@
 <p-toast></p-toast>
+<p-scrollTop></p-scrollTop>
 <div class="analysis-main">
-  <div class="monthly-data">
-    <h1>
-      <i><u>Monthly Product Purchase</u></i>
-    </h1>
-    <div class="listbox-container">
-      <p-listbox
-        [options]="groupedCities"
-        [group]="true"
-        [(ngModel)]="selectedProduct"
-        [metaKeySelection]="false"
-        [checkbox]="true"
-        [filter]="true"
-        [listStyle]="{ 'max-height': '250px' }"
-        [style]="{ width: '15rem' }"
-      >
-        <ng-template let-group pTemplate="group">
-          <div class="p-d-flex p-ai-center">
-            <span>{{ group.label }}</span>
-          </div>
-        </ng-template>
-      </p-listbox>
-    </div>
-    <div style="text-align: center;">
-      <h5>Data Visualization - OnePlus </h5>
-      <p-chart type="bar" width="750px" [data]="basicData" [options]="basicOptions" style="margin: auto;"></p-chart>
-    </div>
-  </div>
-  <div class="inventory-data">
-    <h1>
-      <i><u>Inventory Status</u></i>
-    </h1>
-    <div class="card">
-      <p-table
-        #dt
-        [value]="products"
-        [rows]="10"
-        [paginator]="true"
-        [globalFilterFields]="[
-          'name',
-          'country.name',
-          'representative.name',
-          'status'
-        ]"
-        [rowHover]="true"
-        dataKey="id"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [showCurrentPageReport]="true"
-      >
-        <ng-template pTemplate="caption">
-          <div class="p-d-flex p-ai-center p-jc-between">
-            <h5 class="p-m-0">Manage Products</h5>
-            <span class="p-input-icon-left">
-              <i class="pi pi-search"></i>
-              <input
-                pInputText
-                type="text"
-                (input)="dt.filterGlobal($any($event.target).value, 'contains')"
-                placeholder="Search..."
-              />
-            </span>
-          </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-          <tr>
-            <th pSortableColumn="name">
-              Name <p-sortIcon field="name"></p-sortIcon>
-            </th>
-            <th pSortableColumn="price">
-              Price <p-sortIcon field="price"></p-sortIcon>
-            </th>
-            <th pSortableColumn="category">
-              Category <p-sortIcon field="category"></p-sortIcon>
-            </th>
-            <th pSortableColumn="rating">
-              Reviews <p-sortIcon field="rating"></p-sortIcon>
-            </th>
-            <th pSortableColumn="inventoryStatus">
-              Status <p-sortIcon field="inventoryStatus"></p-sortIcon>
-            </th>
-            <th></th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-          <tr>
-            <td>{{ product.name }}</td>
-            <td>{{ product.price | currency: "USD" }}</td>
-            <td>{{ product.category }}</td>
-            <td>
-              <p-rating
-                [ngModel]="product.rating"
-                [readonly]="true"
-                [cancel]="false"
-              ></p-rating>
-            </td>
-            <td>
-              <span
-                [class]="
-                  'product-badge status-' +
-                  product.inventoryStatus.toLowerCase()
-                "
-                >{{ product.inventoryStatus }}</span
-              >
-            </td>
-            <td>
-              <button
-                pButton
-                pRipple
-                icon="pi pi-pencil"
-                class="p-button-rounded p-button-success p-mr-2"
-                (click)="editProduct(product)"
-              ></button>
-            </td>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="summary">
-          <div class="p-d-flex p-ai-center p-jc-between">
-            In total there are {{ products ? products.length : 0 }} products.
-          </div>
-        </ng-template>
-      </p-table>
-    </div>
-  </div>
+  <p-accordion [multiple]="true">
+    <p-accordionTab header="Monthly Product Purchase">
+      <div class="monthly-data">
+        <div class="listbox-container">
+          <p-listbox
+            [options]="groupedCities"
+            [group]="true"
+            [(ngModel)]="selectedProduct"
+            [metaKeySelection]="false"
+            [checkbox]="true"
+            [filter]="true"
+            [listStyle]="{ 'max-height': '250px' }"
+            [style]="{ width: '15rem' }"
+          >
+            <ng-template let-group pTemplate="group">
+              <div class="p-d-flex p-ai-center">
+                <span>{{ group.label }}</span>
+              </div>
+            </ng-template>
+          </p-listbox>
+        </div>
+        <div style="text-align: center">
+          <h5>Data Visualization - OnePlus</h5>
+          <p-chart
+            type="bar"
+            width="750px"
+            [data]="basicData"
+            [options]="basicOptions"
+            style="margin: auto"
+          ></p-chart>
+        </div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="Inventory Status"
+      ><div class="inventory-data">
+        <div class="card">
+          <p-table
+            #dt
+            [value]="products"
+            [rows]="10"
+            [paginator]="true"
+            [globalFilterFields]="[
+              'name',
+              'country.name',
+              'representative.name',
+              'status'
+            ]"
+            [rowHover]="true"
+            dataKey="id"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [showCurrentPageReport]="true"
+          >
+            <ng-template pTemplate="caption">
+              <div class="p-d-flex p-ai-center p-jc-between">
+                <h5 class="p-m-0">Manage Products</h5>
+                <span class="p-input-icon-left">
+                  <i class="pi pi-search"></i>
+                  <input
+                    pInputText
+                    type="text"
+                    (input)="
+                      dt.filterGlobal($any($event.target).value, 'contains')
+                    "
+                    placeholder="Search..."
+                  />
+                </span>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="name">
+                  Name <p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="price">
+                  Price <p-sortIcon field="price"></p-sortIcon>
+                </th>
+                <th pSortableColumn="category">
+                  Category <p-sortIcon field="category"></p-sortIcon>
+                </th>
+                <th pSortableColumn="rating">
+                  Reviews <p-sortIcon field="rating"></p-sortIcon>
+                </th>
+                <th pSortableColumn="inventoryStatus">
+                  Status <p-sortIcon field="inventoryStatus"></p-sortIcon>
+                </th>
+                <th></th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+              <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price | currency: "USD" }}</td>
+                <td>{{ product.category }}</td>
+                <td>
+                  <p-rating
+                    [ngModel]="product.rating"
+                    [readonly]="true"
+                    [cancel]="false"
+                  ></p-rating>
+                </td>
+                <td>
+                  <span
+                    [class]="
+                      'product-badge status-' +
+                      product.inventoryStatus.toLowerCase()
+                    "
+                    >{{ product.inventoryStatus }}</span
+                  >
+                </td>
+                <td>
+                  <button
+                    pButton
+                    pRipple
+                    icon="pi pi-pencil"
+                    class="p-button-rounded p-button-success p-mr-2"
+                    (click)="editProduct(product)"
+                  ></button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+              <div class="p-d-flex p-ai-center p-jc-between">
+                In total there are
+                {{ products ? products.length : 0 }} products.
+              </div>
+            </ng-template>
+          </p-table>
+        </div>
+      </div></p-accordionTab
+    >
+    <p-accordionTab header="Category Wise Sale"></p-accordionTab>
+  </p-accordion>
 </div>
 
 <p-dialog

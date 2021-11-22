@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ScrollTopModule } from 'primeng/scrolltop';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/dropdown';
-import {ChartModule} from 'primeng/chart';
+import { ChartModule } from 'primeng/chart';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { CarouselModule } from 'primeng/carousel';
@@ -19,6 +21,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { ListboxModule } from 'primeng/listbox';
 import { ToastModule } from 'primeng/toast';
+import { AccordionModule } from 'primeng/accordion';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
@@ -60,11 +63,13 @@ import { AdminConsoleComponent } from './admin-console/admin-console.component';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    ProgressSpinnerModule,
     AppRoutingModule,
     HttpClientModule,
     CarouselModule,
     TabMenuModule,
     DataViewModule,
+    ScrollTopModule,
     ButtonModule,
     RatingModule,
     ChartModule,
@@ -76,6 +81,7 @@ import { AdminConsoleComponent } from './admin-console/admin-console.component';
     ListboxModule,
     InputTextModule,
     RippleModule,
+    AccordionModule,
     ConfirmDialogModule,
   ],
   providers: [AppService, MessageService, ConfirmationService],
