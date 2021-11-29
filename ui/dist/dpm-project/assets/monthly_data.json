@@ -1,0 +1,38 @@
+{
+  "Nord": {
+    "Jan": 8,
+    "Feb": 4,
+    "March": 10,
+    "April": 7,
+    "May": 10,
+    "June": 9,
+    "July": 10,
+    "August": 12,
+    "September": 10,
+    "October": 14
+  },
+  "One Plus": {
+    "Jan": 9,
+    "Feb": 4,
+    "March": 7,
+    "April": 7,
+    "May": 10,
+    "June": 9,
+    "July": 6,
+    "August": 10,
+    "September": 11,
+    "October": 10
+  },
+  "Samsung": {
+    "Jan": 4,
+    "Feb": 7,
+    "March": 5,
+    "April": 9,
+    "May": 12,
+    "June": 6,
+    "July": 12,
+    "August": 12,
+    "September": 6,
+    "October": 14
+  }
+}
