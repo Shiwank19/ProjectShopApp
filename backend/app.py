@@ -2,6 +2,7 @@ from flask_cors import CORS, cross_origin
 from flask import Flask, jsonify, request
 from sql import create_connection
 from sql_initial_execution import execute_initial, select_from_table, check_if_available
+from items import get_item_details_all
 import pandas as pd
 
 app = Flask(__name__)
@@ -13,34 +14,44 @@ connection = create_connection("sm_app.sqlite")
 
 @app.route("/category-wise-item-count")
 @cross_origin()
-def get_category_wise_items_sold_count():
+def get_category_wise_items_sold_count_service():
     dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv")
-    Total_classes_category = pd.value_counts(dataset['category'], sort = True)
-    
+    Total_classes_category = pd.value_counts(dataset['category'], sort=True)
+
     return Total_classes_category.to_json()
+
 
 @app.route("/item-wise-item-count")
 @cross_origin()
-def get_item_wise_items_sold_count():
+def get_item_wise_items_sold_count_service():
     dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv")
-    Total_classes_category = pd.value_counts(dataset['Item Name'], sort = True)
-    
+    Total_classes_category = pd.value_counts(dataset['Item Name'], sort=True)
+
     return Total_classes_category.to_json()
+
 
 @app.route("/category-wise-purchase")
 @cross_origin()
-def get_category_wise_purchase():
-    dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
+def get_category_wise_purchase_service():
+    dataset = pd.read_csv(
+        "./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
     df_cat = dataset.dropna()
     return df_cat.groupby('category').sum().to_json()
 
 
 @app.route("/item-wise-purchase")
 @cross_origin()
-def get_item_wise_purchase():
-    dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
+def get_item_wise_purchase_service():
+    dataset = pd.read_csv(
+        "./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
     df_cat = dataset.dropna()
     return df_cat.groupby('Item Name').sum().to_json()
+
+@app.route("/item-details-all")
+@cross_origin()
+def get_item_details_all_service():
+    return jsonify(get_item_details_all().tolist())
+
 
 
 # @app.route("/stock_company", methods=['POST'])

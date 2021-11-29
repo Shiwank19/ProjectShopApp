@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/dpm-project'),
+      dir: require('path').join(__dirname, './coverage/sagar-shop-app'),
       subdir: '.',
       reporters: [
         { type: 'html' },

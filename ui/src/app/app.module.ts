@@ -12,6 +12,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/dropdown';
 import { ChartModule } from 'primeng/chart';
+import { OrderListModule } from 'primeng/orderlist';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { CarouselModule } from 'primeng/carousel';
@@ -78,6 +79,7 @@ import { InventoryComponent } from './inventory/inventory.component';
     ToastModule,
     PanelModule,
     TableModule,
+    OrderListModule,
     DropdownModule,
     DialogModule,
     ListboxModule,

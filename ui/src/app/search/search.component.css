@@ -8,4 +8,7 @@
     color: #6c757d;
 }
 
-
+::ng-deep .p-orderlist-list-container {
+    flex: 1 1 auto;
+    padding: 10px !important;
+}

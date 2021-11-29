@@ -1,6 +1,6 @@
-# DpmProject
+# SagarShopApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
 
 ## Development server
 

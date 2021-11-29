@@ -82,7 +82,6 @@ export class AnalysisComponent implements OnInit {
 
     this.appService.getMonthlyData().then((data) => {
       let monthly_data = data;
-      console.log(monthly_data);
       for (let key in monthly_data) {
         let obj = { label: key, value: key, items: [] };
       }
