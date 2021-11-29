@@ -95,31 +95,30 @@ img {
   :host ::ng-deep .product-list-item {
     flex-direction: column;
     align-items: center;
+  }
+  img {
+    width: 75%;
+    margin: 2rem 0;
+  }
 
-    img {
-      width: 75%;
-      margin: 2rem 0;
-    }
+  .product-list-detail {
+    text-align: center;
+  }
 
-    .product-list-detail {
-      text-align: center;
-    }
+  .product-price {
+    align-self: center;
+  }
 
-    .product-price {
-      align-self: center;
-    }
+  .product-list-action {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .product-list-action {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-list-action {
-      margin-top: 2rem;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
+  .product-list-action {
+    margin-top: 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 }
