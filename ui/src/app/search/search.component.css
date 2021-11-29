@@ -1,0 +1,11 @@
+::ng-deep .p-input-icon-left {
+    padding: 100px 100px 100px 600px;
+}
+
+::ng-deep body .p-input-icon-left > i:first-of-type {
+    padding: 3px;
+    left: auto;
+    color: #6c757d;
+}
+
+

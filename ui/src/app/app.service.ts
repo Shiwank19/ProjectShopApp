@@ -16,6 +16,7 @@ export class AppService {
   private categoryPurchaseUrl = `${this.baseUrl}/category-wise-purchase`;
   private itemCountUrl = `${this.baseUrl}/item-wise-item-count`;
   private itemPurchaseUrl = `${this.baseUrl}/item-wise-purchase`;
+  private itemsDetailsUrl = `${this.baseUrl}/item-details-all`;
   
   productNames: string[] = [
     'Bamboo Watch',
@@ -111,7 +112,13 @@ export class AppService {
       catchError(this.handleError<any[]>('getItemWisePurchaseData', []))
     );
   }
-
+  getItemDetailsAllData() {
+    return this.http.get<any>(this.itemsDetailsUrl).pipe(
+      tap((_) => console.log('fetched data')),
+      catchError(this.handleError<any[]>('getItemDetailsAllData', []))
+    );
+  }
+  
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
