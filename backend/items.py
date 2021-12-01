@@ -6,6 +6,6 @@ import sqlite3
        'item_image', 'item_id']
 '''
 def get_item_details_all():
-    cnx = sqlite3.connect('./data/shopapp.db')
+    cnx = sqlite3.connect('../data/shopapp.db')
     df = pd.read_sql_query("SELECT * FROM Items", cnx)
     return df[['item_name', 'item_category', 'item_id', 'item_retail_price' ]].to_numpy()

@@ -12,16 +12,22 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.items = [
-      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/main/home'] },
-      { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },
-      { label: 'Catalogue', icon: 'pi pi-fw pi-calendar', routerLink: ['/main/products'] },
-      { label: 'Cart', icon: 'pi pi-fw pi-shopping-cart', routerLink: ['/main/cart'] },
-      { label: 'Admin-Console', icon: 'pi pi-fw pi-chart-line', routerLink: ['/main/admin-console'] },
-      { label: 'Contact', icon: 'pi pi-fw pi-cog' },
-    ];
-    if (!this.isAdminConsole) {
-      this.items = this.items.filter(data => data.label != 'Admin-Console');
+    if (this.isAdminConsole) {
+      this.items = [
+        { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/main/home'] },
+        { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },
+        { label: 'Catalogue', icon: 'pi pi-fw pi-calendar', routerLink: ['/main/products'] },
+        { label: 'Admin-Console', icon: 'pi pi-fw pi-chart-line', routerLink: ['/main/admin-console'] },
+        { label: 'Contact', icon: 'pi pi-fw pi-cog' },
+      ];
+    } else {
+      this.items = [
+        { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/main/home'] },
+        { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },
+        { label: 'Catalogue', icon: 'pi pi-fw pi-calendar', routerLink: ['/main/products'] },
+        { label: 'Cart', icon: 'pi pi-fw pi-shopping-cart', routerLink: ['/main/cart'] },
+        { label: 'Contact', icon: 'pi pi-fw pi-cog' },
+      ];
     }
   }
 }

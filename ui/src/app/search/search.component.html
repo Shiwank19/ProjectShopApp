@@ -25,12 +25,12 @@
   </ng-template>
   <ng-template pTemplate="body" let-product>
     <tr>
-      <td>{{ product[0] }}</td>
+      <td><a [routerLink] = "['/main/product', product[3]]">{{ product[0] }}</a></td>
       <td>
         <img
-          [src]="'assets/img/brand1.png'"
+          [src]="'assets/product_images/'+product[2]+'.jpg'"
           [alt]="product[0]"
-          width="100"
+          style="width:100px; max-height:100px;"
           class="p-shadow-4"
         />
       </td>

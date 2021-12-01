@@ -16,7 +16,7 @@ def store_products():
     space_count = 2
     seen_name = False
     prod_name, prod_price = None, None
-    with open('./data/items.txt', 'r') as f:
+    with open('../data/items.txt', 'r') as f:
         count = 1
         for idx, line in enumerate(f.read().split('\n')):
             if space_count == 2:

@@ -12,3 +12,19 @@
     flex: 1 1 auto;
     padding: 10px !important;
 }
+
+::ng-deep body .p-input-icon-left > i:first-of-type {
+    padding-left: 7px;
+}
+
+::ng-deep .p-datatable {
+    position: relative;
+    margin: 25px;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    text-align: center;
+}
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    text-align: center;
+}

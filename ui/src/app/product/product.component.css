@@ -1,0 +1,13 @@
+.row {
+    --bs-gutter-x: 1rem;
+}
+
+
+.right-div {
+    padding: 20px;
+}
+
+figure {
+    text-align: center;
+    margin: auto;
+}
