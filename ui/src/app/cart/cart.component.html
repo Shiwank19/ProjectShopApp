@@ -4,7 +4,11 @@
       <div class="product-content-right">
         <div class="woocommerce">
           <form method="post" action="#">
-            <table cellspacing="0" class="shop_table cart">
+            <table
+              cellspacing="0"
+              class="shop_table cart"
+              *ngIf="items && !!items.length; else loggedOut"
+            >
               <thead>
                 <tr>
                   <th class="product-remove">&nbsp;</th>
@@ -18,7 +22,13 @@
               <tbody>
                 <tr class="cart_item" *ngFor="let item of items">
                   <td class="product-remove">
-                    <a title="Remove this item" class="remove" href="#">×</a>
+                    <button
+                      title="Remove this item"
+                      class="remove"
+                      (click)="remove(item.id)"
+                    >
+                      ×
+                    </button>
                   </td>
 
                   <td class="product-thumbnail">
@@ -28,16 +38,16 @@
                         height="145"
                         alt="poster_1_up"
                         class="shop_thumbnail"
-                        src="assets/img/product-thumb-2.jpg"
+                        src="{{ 'assets/product_images/' + item.id + '.jpg' }}"
                     /></a>
                   </td>
 
                   <td class="product-name">
-                    <a href="single-product.html">Samsung</a>
+                    <a href="single-product.html">{{ item.productName }}</a>
                   </td>
 
                   <td class="product-price">
-                    <span class="amount">₹10,000</span>
+                    <span class="amount">₹{{ item.cost }}</span>
                   </td>
 
                   <td class="product-quantity">
@@ -58,7 +68,7 @@
                   </td>
 
                   <td class="product-subtotal">
-                    <span class="amount">₹10,000</span>
+                    <span class="amount">₹{{ item.cost }}</span>
                   </td>
                 </tr>
                 <tr>
@@ -77,6 +87,27 @@
                 </tr>
               </tbody>
             </table>
+            <ng-template #loggedOut>
+              <section id="cards" class="rdneumorphism section py-5">
+                <div class="container">
+                  <div class="row row-cols-1 g-5 py-5">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="starter-template text-center py-5 px-3">
+                            <h1>No Items in Cart</h1>
+                            <p class="lead">
+                              Hurry Up!!! Explore our exciting items at
+                              affordable prices.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </ng-template>
           </form>
 
           <div class="cart-collaterals">
