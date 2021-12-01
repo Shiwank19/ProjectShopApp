@@ -938,7 +938,8 @@ table.shop_table td {
   border-left: 1px solid #ddd;
   border-top: 1px solid #ddd;
   padding: 15px;
-  text-align: center;
+  padding: 15px 5px 15px 0px;
+  text-align: right;
 }
 table.shop_table th {
   background: none repeat scroll 0 0 #f4f4f4;
