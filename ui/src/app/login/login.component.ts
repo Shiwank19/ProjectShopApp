@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,10 @@ export class LoginComponent implements OnInit {
   password: string;
   errorString: string;
   showProgressBar: boolean;
-  constructor(private r: Router) {}
+  constructor(private r: Router, private appService: AppService) {}
 
   ngOnInit(): void {
-    this.name = 'user';
+    this.name = 'admin';
     this.showProgressBar = false;
   }
 
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
       if (this.name == 'user') {
         this.r.navigate(['/main', { id: 'user' }]);
       } else if (this.name == 'admin') {
+        this.appService.isAdmin = true;
         this.r.navigate(['/main', { id: 'admin' }]);
       } else {
         this.errorString = 'Please check the username and password';

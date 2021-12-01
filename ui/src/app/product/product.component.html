@@ -45,7 +45,7 @@
         </table>
       </div>
       <hr />
-      <div class="button-div">
+      <div class="button-div" *ngIf="!isAdmin">
         <button type="button" class="btn btn-primary btn-md mr-1 mb-2" (click)="submit()">
           Buy now
         </button>

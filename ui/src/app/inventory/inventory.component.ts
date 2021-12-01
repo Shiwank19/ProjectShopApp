@@ -34,7 +34,22 @@ export class InventoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const status = ['INSTOCK', 'LOWSTOCK', 'OUTOFSTOCK'];
     this.appService.getProducts().then((data) => (this.products = data));
+    this.appService.getItemDetailsAllData().subscribe((data: any[]) => {
+      let products = [];
+      for (let i=0; i<data.length; i++) {
+        products.push({
+          name: data[i][0],
+          description: 'Description',
+          price: data[i][3],
+          category: data[i][1],
+          rating: Math.floor(Math.random() * 6),
+          inventoryStatus: status[Math.floor(Math.random() * 3)]
+        });
+      }
+      this.products = products;
+    });
     this.primengConfig.ripple = true;
   }
 

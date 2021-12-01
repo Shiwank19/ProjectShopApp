@@ -12,7 +12,7 @@ import { Product } from './classes/product';
 export class AppService {
   cartSubject = new Subject();
   public cartProducts: any[] = [];
-
+  public isAdmin: boolean;
   private baseUrl = 'http://localhost:5000';
   private categoryCountUrl = `${this.baseUrl}/category-wise-item-count`;
   private categoryPurchaseUrl = `${this.baseUrl}/category-wise-purchase`;

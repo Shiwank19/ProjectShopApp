@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
   msgs: any[];
   added: boolean;
   order: any;
-
+  isAdmin: boolean;
   constructor(
     private appService: AppService,
     private webService: WindowRefService,
@@ -32,6 +32,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.msgs = [];
     this.added = false;
+    this.isAdmin = this.appService.isAdmin;
     const id = this.activatedRoute.snapshot.params['id'];
     this.appService.getItemDetails(id).subscribe((d: any[]) => {
       d = d[0];
