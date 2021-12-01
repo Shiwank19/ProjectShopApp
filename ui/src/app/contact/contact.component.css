@@ -1101,7 +1101,7 @@
   margin: 30px 235px 60px;
 }
 .u-sheet {
-    padding-top: 100px;
+  padding-top: 100px;
 }
 @media (max-width: 1199px) {
   .u-section-2 .u-sheet-1 {
@@ -1726,7 +1726,21 @@
 .u-section-6 .u-image-1 {
   width: 141px;
   height: 141px;
-  background-image: url(//images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/8c356540939f52c694d05d19/pexels-photo-6139560.jpeg?version=);
+  background-image: url("src/assets/img/shivam.jpg");
+  background-position: 50% 50%;
+  margin: 0 auto;
+}
+.u-section-6 .u-image-2 {
+  width: 141px;
+  height: 141px;
+  background-image: url("src/assets/img/shivank.jpg");
+  background-position: 50% 50%;
+  margin: 0 auto;
+}
+.u-section-6 .u-image-3 {
+  width: 141px;
+  height: 141px;
+  background-image: url("src/assets/img/vibhor.jpg");
   background-position: 50% 50%;
   margin: 0 auto;
 }
@@ -1751,13 +1765,6 @@
 }
 .u-section-6 .u-container-layout-5 {
   padding: 30px;
-}
-.u-section-6 .u-image-2 {
-  width: 141px;
-  height: 141px;
-  background-image: url(//images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/8d61a51419415215b2417e56/pexels-photo-5944321.jpeg?version=);
-  background-position: 50% 50%;
-  margin: 0 auto;
 }
 @media (max-width: 1199px) {
   .u-section-6 {
