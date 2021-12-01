@@ -45,6 +45,7 @@ import { HeaderComponent } from './header/header.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ProductComponent } from './product/product.component';
+import { WindowRefService } from './window-ref.service';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,12 @@ import { ProductComponent } from './product/product.component';
     AccordionModule,
     ConfirmDialogModule,
   ],
-  providers: [AppService, MessageService, ConfirmationService],
+  providers: [
+    AppService,
+    MessageService,
+    ConfirmationService,
+    WindowRefService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
