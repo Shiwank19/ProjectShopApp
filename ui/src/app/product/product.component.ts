@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +14,7 @@ export class ProductComponent implements OnInit {
   cost: string;
   color: string;
   image_id: string;
-  constructor() { }
+  constructor(private appService: AppService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.productName = 'Fantasy T-shirt';
@@ -22,8 +24,16 @@ export class ProductComponent implements OnInit {
     perferendis voluptates laboriosam. Distinctio, officia quis dolore quos
     sapiente tempore alias.`;
     this.cost = '12.99';
-    this.color = 'Black';
-    this.image_id = '2';
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.appService.getItemDetails(id).subscribe((d:any[]) => {
+      d = d[0];
+      this.productName = d[0];
+      this.category = d[1];
+      this.image_id = d[2];
+      this.cost = d[3];
+      this.description = d[4];
+      this.color = d[5];
+    });
   }
 
 }

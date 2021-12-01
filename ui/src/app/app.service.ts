@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Observable, of } from 'rxjs';
@@ -16,8 +16,9 @@ export class AppService {
   private categoryPurchaseUrl = `${this.baseUrl}/category-wise-purchase`;
   private itemCountUrl = `${this.baseUrl}/item-wise-item-count`;
   private itemPurchaseUrl = `${this.baseUrl}/item-wise-purchase`;
-  private itemsDetailsUrl = `${this.baseUrl}/item-details-all`;
-  
+  private itemsDetailsAllUrl = `${this.baseUrl}/item-details-all`;
+  private itemsDetailsUrl = `${this.baseUrl}/item-details`;
+
   productNames: string[] = [
     'Bamboo Watch',
     'Black Watch',
@@ -106,19 +107,30 @@ export class AppService {
       catchError(this.handleError<any[]>('getItemWiseCountData', []))
     );
   }
+  
   getItemWisePurchaseData() {
     return this.http.get<any>(this.itemPurchaseUrl).pipe(
       tap((_) => console.log('fetched data')),
       catchError(this.handleError<any[]>('getItemWisePurchaseData', []))
     );
   }
+  
   getItemDetailsAllData() {
-    return this.http.get<any>(this.itemsDetailsUrl).pipe(
+    return this.http.get<any>(this.itemsDetailsAllUrl).pipe(
       tap((_) => console.log('fetched data')),
       catchError(this.handleError<any[]>('getItemDetailsAllData', []))
     );
   }
-  
+
+  getItemDetails(id: string) {
+    let params = new HttpParams();
+    params = params.append('id', id);
+    return this.http.get<any[]>(this.itemsDetailsUrl, { params: params }).pipe(
+      tap((_) => console.log('fetched data')),
+      catchError(this.handleError<any[]>('getItemDetailsAllData', []))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure

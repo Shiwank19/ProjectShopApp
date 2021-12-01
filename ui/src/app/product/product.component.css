@@ -23,3 +23,8 @@ button {
     width: 150px;
     height: 100px;
 }
+
+.img-fluid {
+    max-height: 500px;
+    max-width: 400px;
+}

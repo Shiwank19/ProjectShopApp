@@ -2,7 +2,7 @@ from flask_cors import CORS, cross_origin
 from flask import Flask, jsonify, request
 from sql import create_connection
 from sql_initial_execution import execute_initial, select_from_table, check_if_available
-from items import get_item_details_all
+from items import get_item_details_all, get_item_details
 import pandas as pd
 
 app = Flask(__name__)
@@ -51,6 +51,11 @@ def get_item_wise_purchase_service():
 @cross_origin()
 def get_item_details_all_service():
     return jsonify(get_item_details_all().tolist())
+
+@app.route("/item-details")
+@cross_origin()
+def get_item_details_service():
+    return jsonify(get_item_details(request.args.get('id')).tolist())
 
 
 
