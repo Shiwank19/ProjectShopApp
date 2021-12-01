@@ -13,3 +13,6 @@ li {
     margin: 10px;
 }
 
+::ng-deep .p-tabmenu >  ul {
+  background: linear-gradient(90deg, white, black) !important;
+}

@@ -8,10 +8,15 @@ import { AppService } from '../app.service';
 })
 export class CartComponent implements OnInit {
   items: any[];
+  total: number;
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
     this.items = this.appService.cartProducts;
+    this.appService.cartSubject.subscribe((data: any) => {
+      this.total = data.total;
+    });
+    this.appService.getCartDetails();
   }
 
   remove(id: number) {

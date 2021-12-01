@@ -17,14 +17,14 @@ export class NavbarComponent implements OnInit {
         { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/main/home'] },
         { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },
         { label: 'Admin-Console', icon: 'pi pi-fw pi-chart-line', routerLink: ['/main/admin-console'] },
-        { label: 'Contact', icon: 'pi pi-fw pi-cog', routerLink: ['/main/contact'] },
+        { label: 'About Us', icon: 'pi pi-fw pi-cog', routerLink: ['/main/contact'] },
       ];
     } else {
       this.items = [
         { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/main/home'] },
         { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },
         { label: 'Cart', icon: 'pi pi-fw pi-shopping-cart', routerLink: ['/main/cart'] },
-        { label: 'Contact', icon: 'pi pi-fw pi-cog', routerLink: ['/main/contact'] },
+        { label: 'About Us', icon: 'pi pi-fw pi-cog', routerLink: ['/main/contact'] },
       ];
     }
   }
