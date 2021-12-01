@@ -11,6 +11,8 @@ import { Product } from './classes/product';
 })
 export class AppService {
   cartSubject = new Subject();
+  public cartProducts: any[] = [];
+
   private baseUrl = 'http://localhost:5000';
   private categoryCountUrl = `${this.baseUrl}/category-wise-item-count`;
   private categoryPurchaseUrl = `${this.baseUrl}/category-wise-purchase`;
@@ -18,39 +20,6 @@ export class AppService {
   private itemPurchaseUrl = `${this.baseUrl}/item-wise-purchase`;
   private itemsDetailsAllUrl = `${this.baseUrl}/item-details-all`;
   private itemsDetailsUrl = `${this.baseUrl}/item-details`;
-
-  productNames: string[] = [
-    'Bamboo Watch',
-    'Black Watch',
-    'Blue Band',
-    'Blue T-Shirt',
-    'Bracelet',
-    'Brown Purse',
-    'Chakra Bracelet',
-    'Galaxy Earrings',
-    'Game Controller',
-    'Gaming Set',
-    'Gold Phone Case',
-    'Green Earbuds',
-    'Green T-Shirt',
-    'Grey T-Shirt',
-    'Headphones',
-    'Light Green T-Shirt',
-    'Lime Band',
-    'Mini Speakers',
-    'Painted Phone Case',
-    'Pink Band',
-    'Pink Purse',
-    'Purple Band',
-    'Purple Gemstone Necklace',
-    'Purple T-Shirt',
-    'Shoes',
-    'Sneakers',
-    'Teal T-Shirt',
-    'Yellow Earbuds',
-    'Yoga Mat',
-    'Yoga Set',
-  ];
 
   constructor(private http: HttpClient) {}
 
@@ -84,7 +53,19 @@ export class AppService {
   }
 
   getCartDetails() {
-    this.cartSubject.next({ total: 100, items: 3 });
+    if (!!this.cartProducts.length) {
+      this.cartSubject.next({
+        total: this.cartProducts.reduce((pv, cv) => {
+          return Number(pv) + Number(cv.cost);
+        }, 0),
+        items: this.cartProducts.length,
+      });
+    } else {
+      this.cartSubject.next({
+        total: 0,
+        items: 0,
+      });
+    }
   }
 
   getCategoryWiseCountData() {
@@ -107,14 +88,14 @@ export class AppService {
       catchError(this.handleError<any[]>('getItemWiseCountData', []))
     );
   }
-  
+
   getItemWisePurchaseData() {
     return this.http.get<any>(this.itemPurchaseUrl).pipe(
       tap((_) => console.log('fetched data')),
       catchError(this.handleError<any[]>('getItemWisePurchaseData', []))
     );
   }
-  
+
   getItemDetailsAllData() {
     return this.http.get<any>(this.itemsDetailsAllUrl).pipe(
       tap((_) => console.log('fetched data')),
@@ -128,6 +109,21 @@ export class AppService {
     return this.http.get<any[]>(this.itemsDetailsUrl, { params: params }).pipe(
       tap((_) => console.log('fetched data')),
       catchError(this.handleError<any[]>('getItemDetailsAllData', []))
+    );
+  }
+
+  addProduct(cartItem: any): boolean {
+    if (!this.cartProducts.some((c: any) => c.id == cartItem.id)) {
+      this.cartProducts.push(cartItem);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  removeProduct(cartId: any) {
+    this.cartProducts = this.cartProducts.filter(
+      (item: any) => item.id != cartId
     );
   }
 

@@ -25,6 +25,8 @@ import { ToastModule } from 'primeng/toast';
 import { AccordionModule } from 'primeng/accordion';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 import { MessageService } from 'primeng/api';
 
 import { AppComponent } from './app.component';
@@ -70,6 +72,8 @@ import { ProductComponent } from './product/product.component';
     AppRoutingModule,
     HttpClientModule,
     CarouselModule,
+    MessagesModule,
+    MessageModule,
     TabMenuModule,
     DataViewModule,
     ScrollTopModule,

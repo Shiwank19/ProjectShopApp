@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private r: Router) {}
 
   ngOnInit(): void {
-    this.name = 'admin';
+    this.name = 'user';
     this.showProgressBar = false;
   }
 

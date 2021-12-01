@@ -16,7 +16,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="cart_item">
+                <tr class="cart_item" *ngFor="let item of items">
                   <td class="product-remove">
                     <a title="Remove this item" class="remove" href="#">×</a>
                   </td>
@@ -50,6 +50,7 @@
                         title="Qty"
                         value="1"
                         min="0"
+                        disabled
                         step="1"
                       />
                       <input type="button" class="plus" value="+" />

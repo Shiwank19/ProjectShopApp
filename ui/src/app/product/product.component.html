@@ -1,4 +1,4 @@
-<!--Section: Block Content-->
+<p-messages [(value)]="msgs"></p-messages>
 <section class="mb-5">
   <div class="row">
     <div class="col-md-6 mb-4 mb-md-0">
@@ -9,6 +9,7 @@
           <div class="col-12 mb-0">
             <figure class="view overlay rounded z-depth-1 main-img">
               <img
+                *ngIf="image_id"
                 [src]="'assets/product_images/' + image_id + '.jpg'"
                 class="img-fluid z-depth-1"
               />
@@ -18,7 +19,7 @@
       </div>
     </div>
     <div class="col-md-6 right-div">
-      <h5 style="font-weight: bolder;">{{ productName }}</h5>
+      <h5 style="font-weight: bolder">{{ productName }}</h5>
       <p class="mb-2 text-uppercase small">{{ category }}</p>
       <p>
         <span class="mr-1"
@@ -48,8 +49,13 @@
         <button type="button" class="btn btn-primary btn-md mr-1 mb-2">
           Buy now
         </button>
-        <button type="button" class="btn btn-light btn-md mr-1 mb-2">
-          <i class="fas fa-shopping-cart pr-2"></i>Add to cart
+        <button
+          (click)="add()"
+          type="button"
+          class="btn btn-light btn-md mr-1 mb-2"
+        >
+          <i class="fas fa-shopping-cart pr-2"></i
+          >{{ added ? "Remove from cart" : "Add to cart" }}
         </button>
       </div>
     </div>

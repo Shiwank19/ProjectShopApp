@@ -13,3 +13,7 @@ input[type=number] {
   -moz-appearance: textfield;
   text-align: center;
 }
+
+tr > td, tr > th {
+  text-align: center;
+}

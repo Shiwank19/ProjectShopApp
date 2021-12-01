@@ -7,8 +7,8 @@
   <span>Welcome !!!</span>
   <div class="spacer"></div>
   <div class="shopping-item" *ngIf="total">
-    <a href="cart.html"
-      ><span class="cart-amount">{{ total | currency: "INR" }}</span>
+    <a [routerLink] = "['/main/cart']">
+      <span class="cart-amount">{{ total | currency: "INR" }}</span>
       <i class="fa fa-shopping-cart"></i>
       <span class="product-count">{{ items }}</span></a
     >
