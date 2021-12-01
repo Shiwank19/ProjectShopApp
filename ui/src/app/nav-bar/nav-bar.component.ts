@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
         { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },
         { label: 'Catalogue', icon: 'pi pi-fw pi-calendar', routerLink: ['/main/products'] },
         { label: 'Admin-Console', icon: 'pi pi-fw pi-chart-line', routerLink: ['/main/admin-console'] },
-        { label: 'Contact', icon: 'pi pi-fw pi-cog' },
+        { label: 'Contact', icon: 'pi pi-fw pi-cog', routerLink: ['/main/contact'] },
       ];
     } else {
       this.items = [
@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
         { label: 'Search', icon: 'pi pi-fw pi-search', routerLink: ['/main/search'] },
         { label: 'Catalogue', icon: 'pi pi-fw pi-calendar', routerLink: ['/main/products'] },
         { label: 'Cart', icon: 'pi pi-fw pi-shopping-cart', routerLink: ['/main/cart'] },
-        { label: 'Contact', icon: 'pi pi-fw pi-cog' },
+        { label: 'Contact', icon: 'pi pi-fw pi-cog', routerLink: ['/main/contact'] },
       ];
     }
   }

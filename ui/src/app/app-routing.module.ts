@@ -4,6 +4,7 @@ import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { CartComponent } from './cart/cart.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
+import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'admin-console', component: AdminConsoleComponent },
       { path: 'analyse', component: AnalysisComponent },
       { path: 'inventory', component: InventoryComponent },
+      { path: 'contact', component: ContactComponent },
       { path: 'product/:id', component: ProductComponent },
       { path: '', pathMatch: 'full', redirectTo: 'home' },
     ],
