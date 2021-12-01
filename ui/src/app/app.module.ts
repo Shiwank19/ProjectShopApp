@@ -33,7 +33,6 @@ import { NavbarComponent } from './nav-bar/nav-bar.component';
 import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
-import { CatalogueComponent } from './catalogue/catalogue.component';
 import { SearchComponent } from './search/search.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { ContactComponent } from './contact/contact.component';
@@ -53,7 +52,6 @@ import { ProductComponent } from './product/product.component';
     SliderComponent,
     FooterComponent,
     CartComponent,
-    CatalogueComponent,
     SearchComponent,
     AnalysisComponent,
     ContactComponent,

@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { CartComponent } from './cart/cart.component';
-import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -21,7 +20,6 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'home', component: HomeComponent },
       { path: 'search', component: SearchComponent },
-      { path: 'products', component: CatalogueComponent },
       { path: 'admin-console', component: AdminConsoleComponent },
       { path: 'analyse', component: AnalysisComponent },
       { path: 'inventory', component: InventoryComponent },
