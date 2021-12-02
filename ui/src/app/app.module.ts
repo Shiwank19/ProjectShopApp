@@ -21,6 +21,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { ListboxModule } from 'primeng/listbox';
+import { ImageModule } from 'primeng/image';
 import { ToastModule } from 'primeng/toast';
 import { AccordionModule } from 'primeng/accordion';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -79,6 +80,7 @@ import { WindowRefService } from './window-ref.service';
     DataViewModule,
     ScrollTopModule,
     ButtonModule,
+    ImageModule,
     RatingModule,
     ChartModule,
     ToastModule,

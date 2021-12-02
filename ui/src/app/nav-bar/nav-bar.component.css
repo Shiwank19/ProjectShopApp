@@ -16,3 +16,8 @@ li {
 ::ng-deep .p-tabmenu >  ul {
   background: linear-gradient(90deg, white, black) !important;
 }
+
+::ng-deep a.p-menuitem-link:hover {
+  background-color: grey !important;
+  color: #fff !important;
+}
