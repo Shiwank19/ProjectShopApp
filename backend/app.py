@@ -16,7 +16,7 @@ connection = create_connection("sm_app.sqlite")
 @app.route("/category-wise-item-count")
 @cross_origin()
 def get_category_wise_items_sold_count_service():
-    dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv")
+    dataset = pd.read_csv("../data/Sagar Shop Purchase - Sheet1.csv")
     Total_classes_category = pd.value_counts(dataset['category'], sort=True)
     return Total_classes_category.to_json()
 
@@ -24,7 +24,7 @@ def get_category_wise_items_sold_count_service():
 @app.route("/item-wise-item-count")
 @cross_origin()
 def get_item_wise_items_sold_count_service():
-    dataset = pd.read_csv("./data/Sagar Shop Purchase - Sheet1.csv")
+    dataset = pd.read_csv("../data/Sagar Shop Purchase - Sheet1.csv")
     Total_classes_category = pd.value_counts(dataset['Item Name'], sort=True)
     return Total_classes_category.to_json()
 
@@ -33,7 +33,7 @@ def get_item_wise_items_sold_count_service():
 @cross_origin()
 def get_category_wise_purchase_service():
     dataset = pd.read_csv(
-        "./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
+        "../data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
     df_cat = dataset.dropna()
     return df_cat.groupby('category').sum().to_json()
 
@@ -42,7 +42,7 @@ def get_category_wise_purchase_service():
 @cross_origin()
 def get_item_wise_purchase_service():
     dataset = pd.read_csv(
-        "./data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
+        "../data/Sagar Shop Purchase - Sheet1.csv").drop(columns=['S No'])
     df_cat = dataset.dropna()
     return df_cat.groupby('Item Name').sum().to_json()
 

@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   submit() {
     this.errorString = '';
     this.showProgressBar = true;
+    this.appService.isAdmin = false;
     setTimeout(() => {
       this.showProgressBar = false;
       if (this.name == 'user') {
