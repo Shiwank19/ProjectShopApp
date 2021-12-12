@@ -20,7 +20,63 @@
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex p-ai-center p-jc-between">
-          <h5 class="p-m-0">Manage Products</h5>
+          <h5 class="p-m-0" style="font-weight: bolder">Manage Products</h5>
+          <p-toolbar>
+            <p-button
+              (click)="showBasicDialog2()"
+              label="New"
+              icon="pi pi-plus"
+            ></p-button>
+          </p-toolbar>
+
+          <p-dialog
+            header="Add New Product"
+            [(visible)]="displayBasic2"
+            [style]="{ width: '50vw' }"
+            [modal]="true"
+          >
+            <div class="p-grid p-fluid">
+              <div class="p-col-12 p-md-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-user"></i
+                  ></span>
+                  <input type="text" pInputText placeholder="Username" />
+                </div>
+              </div>
+
+              <div class="p-col-12 p-md-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon">$</span>
+                  <input type="text" pInputText placeholder="Price" />
+                  <span class="p-inputgroup-addon">.00</span>
+                </div>
+              </div>
+
+              <div class="p-col-12 p-md-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon">www</span>
+                  <input type="text" pInputText placeholder="Website" />
+                </div>
+              </div>
+            </div>
+
+            <ng-template pTemplate="footer">
+              <p-button
+                icon="pi pi-check"
+                (click)="add()"
+                label="Add"
+                styleClass="p-button-text"
+              ></p-button>
+              <p-button
+                icon="pi pi-times"
+                (click)="cancel()"
+                label="Cancel"
+                styleClass="p-button-text"
+              ></p-button>
+            </ng-template>
+          </p-dialog>
+
           <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
             <input

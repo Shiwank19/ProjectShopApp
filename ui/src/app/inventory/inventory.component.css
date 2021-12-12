@@ -17,3 +17,8 @@ label {
 input, textarea {
     text-align: center;
 }
+
+::ng-deep .p-toolbar, .p-toolbar-group-left, .p-toolbar-group-right {
+    display: block !important;
+    text-align: center;
+}

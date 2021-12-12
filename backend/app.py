@@ -5,6 +5,8 @@ from sql_initial_execution import execute_initial, select_from_table, check_if_a
 from items import get_item_details_all, get_item_details
 from payments import create_order, verify
 import pandas as pd
+import cv2
+import os
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -72,18 +74,29 @@ razorpay_order_id: "order_ISFCTR8XXXX"
 razorpay_payment_id: "pay_ISFD8sU83fXXXX"
 razorpay_signature: "XXXXXXXXXXXXXXXXXXXXx"
 '''
+
+
 @app.route("/save-payment-details", methods=['POST'])
 @cross_origin()
-def save_order():
+def save_order_service():
     data = request.form
     return jsonify({})
-    #save in the db
-# @app.route("/stock_company", methods=['POST'])
-# @cross_origin()
-# def get_stock_company_info():
-#     data = request.json
-#     idx, amount, period, startDate, endDate, roa = data['ids'], data[
-#         'amount'], data['period'], data['startDate'], data['endDate'], data['roa']
+    # save in the db
+
+
+
+@app.route("/add-item", methods=['POST'])
+@cross_origin()
+def add_new_item_service():
+    data = request.form.get('imageone', 'fdgdgdgdfg')
+    print(data)
+    print(request.files)
+    image_path = "../ui/dist/sagar-shop-app/assets/product_images"
+
+    # os.mkdir(image_path)
+    cv2.imwrite(os.path.join(image_path , 'waka.jpg'), data)
+    cv2.waitKey(0)
+    return jsonify({})
 
 
 print('starting...')

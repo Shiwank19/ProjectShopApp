@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Observable, of } from 'rxjs';
@@ -20,7 +20,12 @@ export class AppService {
   private itemPurchaseUrl = `${this.baseUrl}/item-wise-purchase`;
   private itemsDetailsAllUrl = `${this.baseUrl}/item-details-all`;
   private itemsDetailsUrl = `${this.baseUrl}/item-details`;
-
+  private addItemUrl = `${this.baseUrl}/add-item`;
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    }),
+  };
   constructor(private http: HttpClient) {}
 
   getProductsSmall() {
@@ -119,6 +124,17 @@ export class AppService {
     } else {
       return false;
     }
+  }
+
+  addNewProduct(img: any) {
+    var formData = new FormData();
+    formData.append('imageone', img, img.name);
+    return this.http
+      .post<any>(this.addItemUrl, formData)
+      .pipe(
+        tap((_) => console.log('new Product Added')),
+        catchError(this.handleError<any[]>('addNewProduct', []))
+      );
   }
 
   removeProduct(cartId: any) {
