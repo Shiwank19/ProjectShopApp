@@ -7,11 +7,15 @@ import { AppService } from '../app.service';
   styleUrls: ['./prediction.component.css'],
 })
 export class PredictionComponent implements OnInit {
+  discounted:any[];
+  nextPurchase:any[];
+
   constructor(private appService: AppService) {}
 
   ngOnInit(): void {
     this.appService.getPrediction().subscribe((data) => {
-      console.log(data);
+      this.discounted = data.discount_id;
+      this.nextPurchase = data.next_purchase_id;
     });
   }
 }
