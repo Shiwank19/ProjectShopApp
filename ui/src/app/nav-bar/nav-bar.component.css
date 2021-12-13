@@ -1,0 +1,18 @@
+.sticky-wrapper {
+  height: 60px;
+}
+
+a:active,
+a:focus,
+a:hover {
+  background-color: #428bca !important;
+  color: white !important;
+}
+
+li {
+    margin: 10px;
+}
+
+::ng-deep .p-tabmenu >  ul {
+  background: linear-gradient(90deg, white, black) !important;
+}

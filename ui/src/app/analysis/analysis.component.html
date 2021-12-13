@@ -1,0 +1,73 @@
+<p-scrollTop></p-scrollTop>
+<div class="analysis-main">
+  <p-accordion [multiple]="true">
+    <p-accordionTab header="Monthly Product Purchase">
+      <div class="monthly-data">
+        <div class="listbox-container">
+          <p-listbox
+            [options]="groupedCities"
+            [group]="true"
+            [(ngModel)]="selectedProduct"
+            [metaKeySelection]="false"
+            [checkbox]="true"
+            [filter]="true"
+            [listStyle]="{ 'max-height': '250px' }"
+            [style]="{ width: '15rem' }"
+          >
+            <ng-template let-group pTemplate="group">
+              <div class="p-d-flex p-ai-center">
+                <span>{{ group.label }}</span>
+              </div>
+            </ng-template>
+          </p-listbox>
+        </div>
+        <div style="text-align: center">
+          <h5>Data Visualization - OnePlus</h5>
+          <p-chart
+            type="bar"
+            width="750px"
+            [data]="basicData"
+            [options]="basicOptions"
+            style="margin: auto"
+          ></p-chart>
+        </div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="Category Wise Sale Count">
+      <p-chart
+        type="doughnut"
+        width="40vw"
+        height="80vh"
+        *ngIf="category_wise_item_count"
+        [data]="category_wise_item_count"
+        [options]="chartOptions"
+        [style]="{ width: '40%' }"
+      ></p-chart>
+    </p-accordionTab>
+    <p-accordionTab header="Category Wise Sales">
+      <p-chart
+        type="bar"
+        [data]="multiAxisCategoryData"
+        [options]="multiAxisOptions"
+      ></p-chart>
+    </p-accordionTab>
+    <p-accordionTab header="Item Wise Sale Count">
+      <p-chart
+        type="doughnut"
+        width="40vw"
+        height="80vh"
+        *ngIf="item_wise_item_count"
+        [data]="item_wise_item_count"
+        [options]="chartOptions"
+        [style]="{ width: '40%' }"
+      ></p-chart>
+    </p-accordionTab>
+    <p-accordionTab header="Item Wise Sales">
+      <p-chart
+        type="bar"
+        [data]="multiAxisItemData"
+        [options]="multiAxisOptions"
+      ></p-chart>
+    </p-accordionTab>
+  </p-accordion>
+</div>

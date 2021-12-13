@@ -1,0 +1,31 @@
+.row {
+    --bs-gutter-x: 1rem;
+}
+
+
+.right-div {
+    padding: 20px;
+    margin: 40px 0px;
+    border-radius: 10px;
+    background: rgb(118, 85, 151);
+}
+
+figure {
+    text-align: center;
+    margin: auto;
+}
+
+.button-div {
+    padding-top: 50px;
+    text-align: center;
+}
+
+button {
+    width: 150px;
+    height: 100px;
+}
+
+.img-fluid {
+    max-height: 500px;
+    max-width: 400px;
+}
