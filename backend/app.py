@@ -1,9 +1,11 @@
 from flask_cors import CORS, cross_origin
 from flask import Flask, jsonify, request
 from sql import create_connection
-from sql_initial_execution import execute_initial, select_from_table, check_if_available
+from sql_initial_execution import execute_initial
 from items import get_item_details_all, get_item_details
-from payments import create_order, verify
+from payments import create_order
+from saleprediction import get_predictions
+
 import pandas as pd
 import cv2
 import os
@@ -69,6 +71,16 @@ def create_order_service():
     return jsonify(create_order())
 
 
+@app.route("/item-predict")
+@cross_origin()
+def item_predict_service():
+    next_purchase_id, discount_id = get_predictions()
+    return jsonify({
+        'next_purchase_id': next_purchase_id,
+        'discount_id': discount_id
+    })
+
+
 '''
 razorpay_order_id: "order_ISFCTR8XXXX"
 razorpay_payment_id: "pay_ISFD8sU83fXXXX"
@@ -84,7 +96,6 @@ def save_order_service():
     # save in the db
 
 
-
 @app.route("/add-item", methods=['POST'])
 @cross_origin()
 def add_new_item_service():
@@ -94,7 +105,7 @@ def add_new_item_service():
     image_path = "../ui/dist/sagar-shop-app/assets/product_images"
 
     # os.mkdir(image_path)
-    cv2.imwrite(os.path.join(image_path , 'waka.jpg'), data)
+    cv2.imwrite(os.path.join(image_path, 'waka.jpg'), data)
     cv2.waitKey(0)
     return jsonify({})
 

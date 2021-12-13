@@ -49,6 +49,7 @@ import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ProductComponent } from './product/product.component';
 import { WindowRefService } from './window-ref.service';
+import { PredictionComponent } from './prediction/prediction.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { WindowRefService } from './window-ref.service';
     AdminConsoleComponent,
     InventoryComponent,
     ProductComponent,
+    PredictionComponent,
   ],
   imports: [
     BrowserModule,

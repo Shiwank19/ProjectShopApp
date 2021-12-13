@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { PredictionComponent } from './prediction/prediction.component';
 import { ProductComponent } from './product/product.component';
 import { SearchComponent } from './search/search.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'search', component: SearchComponent },
       { path: 'admin-console', component: AdminConsoleComponent },
       { path: 'analyse', component: AnalysisComponent },
+      { path: 'prediction', component: PredictionComponent },
       { path: 'inventory', component: InventoryComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'product/:id', component: ProductComponent },

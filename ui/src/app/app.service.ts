@@ -21,6 +21,7 @@ export class AppService {
   private itemsDetailsAllUrl = `${this.baseUrl}/item-details-all`;
   private itemsDetailsUrl = `${this.baseUrl}/item-details`;
   private addItemUrl = `${this.baseUrl}/add-item`;
+  private predictUrl = `${this.baseUrl}/item-predict`
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -117,6 +118,13 @@ export class AppService {
     );
   }
 
+  getPrediction() {
+    return this.http.get<any>(this.predictUrl).pipe(
+      tap((_) => console.log('fetched data')),
+      catchError(this.handleError<any[]>('getPrediction', []))
+    );
+  }
+  
   addProduct(cartItem: any): boolean {
     if (!this.cartProducts.some((c: any) => c.id == cartItem.id)) {
       this.cartProducts.push(cartItem);

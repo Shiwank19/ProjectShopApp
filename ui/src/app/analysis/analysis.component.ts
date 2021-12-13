@@ -80,12 +80,12 @@ export class AnalysisComponent implements OnInit {
       },
     ];
 
-    this.appService.getMonthlyData().then((data) => {
-      let monthly_data = data;
-      for (let key in monthly_data) {
-        let obj = { label: key, value: key, items: [] };
-      }
-    });
+    // this.appService.getMonthlyData().then((data) => {
+    //   let monthly_data = data;
+    //   for (let key in monthly_data) {
+    //     let obj = { label: key, value: key, items: [] };
+    //   }
+    // });
 
     this.primengConfig.ripple = true;
 
