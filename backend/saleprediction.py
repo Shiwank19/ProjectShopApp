@@ -46,10 +46,10 @@ def get_predictions():
   sorted_items = sorted(sale_score_id.items(), key = lambda x: x[1] ,reverse = True)
   for item_pair in sorted_items:
     if ids[item_pair[0]] not in current_items and item_pair[1] >0.6:
-      pred_item_id.append(item_pair[0])
+      pred_item_id.append([item_pair[0], item_pair[1]])
 
   next_purchase_id = pred_item_id
-  discount_id = [r[0] for r in sorted_items[-1:-6:-1]]
+  discount_id = [[r[0], r[1]] for r in sorted_items[-1:-6:-1]]
 
   print('Next Purchase : ',next_purchase_id)
   print('Discount Items',discount_id )

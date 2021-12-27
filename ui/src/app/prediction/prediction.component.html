@@ -2,11 +2,9 @@
 <table>
   <tr>
     <th>Discount Id</th>
-    <th>Discounted Product Name</th>
   </tr>
   <tr *ngFor="let item of discounted">
-    <td>i[0]</td>
-    <td>i[1]</td>
+    <td>{{item[0]}}</td>
   </tr>
 </table>
 <hr />
@@ -17,7 +15,6 @@
     <th>Product Name</th>
   </tr>
   <tr *ngFor="let item of nextPurchase">
-    <td>i[0]</td>
-    <td>i[1]</td>
+    <td>{{item[0]}}</td>
   </tr>
 </table>
